@@ -1,0 +1,99 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{Project Euler}%replace X with the appropriate number
+\author{Mathew Alexander\\ %replace with your name
+Problem 1} %if necessary, replace with your course title
+ 
+\maketitle
+ 
+\begin{problem}{1}
+If we list all natural numbers below 10 that are multiples of 3 or 5, we get 3,5,6 and 9. The sum of these multiples is 23.
+Find the sum of all multiples of 3 or 5 \textbf{below} 1000.
+\end{problem}
+
+\begin{solution}
+This is a simple summation of arithmetic progression problem \dots
+\\\\Consider the series
+\\\\3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33 \dots last number, where the last number is unknown. But we know that it is a multiple of 3 and is below 1000.
+\\\\Sum of n numbers in an arithmetic progression(AP) is given by the equation
+\\ \[S_n = \frac{n}{2}(2a+(n-1)d)\]
+\\where 
+\\ \textit{ a = first term in the AP
+\\n = number of terms in AP
+\\d = difference between terms in an AP
+}
+\\
+\\If the last term is known then the equation becomes
+\\\[S_n = \frac{n}{2}(a + l)\]
+\\where 
+\\ \textit{ l = last term in the AP}
+\\\\Hence \dots 
+\\ \[ \floor{\frac{1000}{3}} = 999\] with 1 as remainder
+\\Also \[\frac{999}{3} = 333\]
+\\Here for the series of multiples of 3,
+\textbf{
+\\ a =3 ,
+\\l = 999,
+\\n = 333
+}
+\\
+\\
+\textit{llly...}
+\\For the series of multiples of 5
+\textbf{
+\\ a =5 ,
+\\l = 995,
+\\n = 199
+}
+\\
+\\Here there is another thing we have to be careful about. As we are summing multiples of 3 or 5, the multiple of 3 and 5(i.e multiples of 15) will be added twice. Hence the same has to be subtracted from total to obtain the correct sum.
+\\For the series of multiples of 15
+\textbf{
+\\ a =15 ,
+\\l = 990,
+\\n = 66
+}
+\\
+\\So the final solution is
+\\\[Sum = S_3 + S_5 - S_{15}\]
+
+\end{solution} 
+
+
+\end{document}
